@@ -23,6 +23,7 @@ function CardContainer(props) {
       setNextPageToken(json.nextPageToken || '');
       setPrevPageToken(json.prevPageToken || '');
       setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
+      window.scrollTo(0, 0)
     })
   }
 
@@ -31,6 +32,7 @@ function CardContainer(props) {
       setNextPageToken(json.nextPageToken || '');
       setPrevPageToken(json.prevPageToken || '');
       setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
+      window.scrollTo(0, 0)
     })
   }
 
