@@ -1,36 +1,36 @@
 import React, {useState, useEffect} from 'react';
-import '../css/CardContainer.css'
-import Card from './Card'
-import Icon from '@mdi/react'
-import {mdiArrowLeftCircle,mdiArrowRightCircle} from '@mdi/js'
+import '../css/CardContainer.css';
+import Card from './Card';
+import Icon from '@mdi/react';
+import {mdiArrowLeftCircle,mdiArrowRightCircle} from '@mdi/js';
 
 
 function CardContainer(props) {
   const [videos, setVideos] = useState([]);
-  const [nextPageToken, setNextPageToken] = useState('')
-  const [prevPageToken, setPrevPageToken] = useState('')
+  const [nextPageToken, setNextPageToken] = useState('');
+  const [prevPageToken, setPrevPageToken] = useState('');
 
   useEffect(()=>{
     fetch('http://localhost:5000').then(r=>r.json()).then(json => {
-      setNextPageToken(json.nextPageToken || '')
-      setPrevPageToken(json.prevPageToken || '')
-      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>))
+      setNextPageToken(json.nextPageToken || '');
+      setPrevPageToken(json.prevPageToken || '');
+      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
     })
   }, [])
 
   const getNext = (token) => {
     fetch(`http://localhost:5000/page/${token}`).then(r=>r.json()).then(json => {
-      setNextPageToken(json.nextPageToken || '')
-      setPrevPageToken(json.prevPageToken || '')
-      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>))
+      setNextPageToken(json.nextPageToken || '');
+      setPrevPageToken(json.prevPageToken || '');
+      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
     })
   }
 
   const getPrev = (token) => {
     fetch(`http://localhost:5000/page/${token}`).then(r=>r.json()).then(json => {
-      setNextPageToken(json.nextPageToken || '')
-      setPrevPageToken(json.prevPageToken || '')
-      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>))
+      setNextPageToken(json.nextPageToken || '');
+      setPrevPageToken(json.prevPageToken || '');
+      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
     })
   }
 
