@@ -22,7 +22,7 @@ function CardContainer(props) {
     fetch(`http://localhost:5000/page/${token}`).then(r=>r.json()).then(json => {
       setNextPageToken(json.nextPageToken || '');
       setPrevPageToken(json.prevPageToken || '');
-      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
+      setVideos(json.items.map(vid => <a key={vid.id.videoId} href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
       window.scrollTo(0, 0)
     })
   }
@@ -31,7 +31,7 @@ function CardContainer(props) {
     fetch(`http://localhost:5000/page/${token}`).then(r=>r.json()).then(json => {
       setNextPageToken(json.nextPageToken || '');
       setPrevPageToken(json.prevPageToken || '');
-      setVideos(json.items.map(vid => <a href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
+      setVideos(json.items.map(vid => <a key={vid.id.videoId} href={'https://www.youtube.com/watch?v='+vid.id.videoId} target='blank'><Card key={vid.id.videoId} name={vid.snippet.title} text={vid.snippet.description} img={vid.snippet.thumbnails.high.url}/></a>));
       window.scrollTo(0, 0)
     })
   }
