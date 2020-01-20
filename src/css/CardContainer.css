@@ -12,7 +12,7 @@ a {
 .arrows {
   bottom: 5;
   margin-left: auto;
-margin-right: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 600px) {
