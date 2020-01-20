@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './paq.jpg';
 import './App.css';
 import Banner from './components/Banner'
 import CardContainer from './components/CardContainer'
