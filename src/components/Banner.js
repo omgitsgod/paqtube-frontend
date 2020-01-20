@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/Banner.css'
-import paqBanner from '../paqBanner.jpg'
+import '../css/Banner.css';
+import paqBanner from '../paqBanner.jpg';
 
 function Banner(props) {
   return (
